@@ -1,0 +1,95 @@
+{
+  "name": "AI Gmail Assistant Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "message",
+        "operation": "getAll",
+        "labelIds": [],
+        "format": "metadata",
+        "includeSpamTrash": false,
+        "returnAll": true
+      },
+      "id": "gmailNodeRead",
+      "name": "Read Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 1,
+      "position": [200, 300],
+      "credentials": {
+        "gmailOAuth2Api": {
+          "id": "REPLACE_WITH_YOUR_ID",
+          "name": "REDACTED_GMAIL_CREDENTIAL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gemini-pro",
+        "prompt": "You are an intelligent Gmail Assistant AI. Your role is to analyze incoming emails and help manage replies or actions.\n\nPerform the following tasks:\n1. Understand the purpose and context of the email (e.g., hackathons, meeting invites, opportunities).\n2. Summarize the email in 3 clear bullet points.\n3. Extract action items, deadlines, and people/organizations mentioned.\n4. If a reply is needed, draft a professional response.\n5. If spam, mention that no action is needed.\n\nNow analyze this email:\nSubject: {{ $json[\"subject\"] }}\nBody: {{ $json[\"snippet\"] }}",
+        "temperature": 0.7,
+        "maxTokens": 1024
+      },
+      "id": "aiAgentNode",
+      "name": "Analyze Email with Gemini",
+      "type": "n8n-nodes-base.ai",
+      "typeVersion": 1,
+      "position": [400, 300],
+      "credentials": {
+        "googleGeminiApi": {
+          "id": "REPLACE_WITH_YOUR_ID",
+          "name": "REDACTED_GEMINI_CREDENTIAL"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "message",
+        "operation": "send",
+        "toList": ["REPLACE_WITH_EMAIL@example.com"],
+        "subject": "AI Drafted Email Based on Incoming Message",
+        "message": "{{ $json[\"text\"] }}",
+        "includeHtml": false
+      },
+      "id": "gmailNodeSend",
+      "name": "Send Gmail Response",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 1,
+      "position": [600, 300],
+      "credentials": {
+        "gmailOAuth2Api": {
+          "id": "REPLACE_WITH_YOUR_ID",
+          "name": "REDACTED_GMAIL_CREDENTIAL"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Read Gmail": {
+      "main": [
+        [
+          {
+            "node": "Analyze Email with Gemini",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Analyze Email with Gemini": {
+      "main": [
+        [
+          {
+            "node": "Send Gmail Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {},
+  "tags": ["AI", "Gmail", "Gemini", "Automation"]
+}
