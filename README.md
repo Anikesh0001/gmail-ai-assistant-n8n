@@ -70,15 +70,7 @@ Only reply with the summary and the response text, clearly separated.
 
 ---
 
-## 📸 Screenshot
 
-You can add this to GitHub to display in your project:
-
-```markdown
-![Workflow Screenshot](./photo.jpeg)
-```
-
----
 
 ## 💡 Use Cases
 
@@ -88,15 +80,6 @@ You can add this to GitHub to display in your project:
 - Support ticket replies
 - Notification analyzer
 
----
-
-## 📂 Repository Structure
-
-```
-├── photo.jpeg           # Workflow image (you add this)
-├── README.md            # This file
-└── (optional) workflow.json
-```
 
 ---
 
@@ -110,4 +93,4 @@ Feel free to fork, remix, and build on it.
 ## 🙋‍♂️ Author
 
 Made with 💡 and automation power by **[Your Name]**  
-Let’s connect on [LinkedIn](https://linkedin.com)
+Let’s connect on [LinkedIn]([https://linkedin.com](https://www.linkedin.com/in/anikesh-kumar-289aaa290))
