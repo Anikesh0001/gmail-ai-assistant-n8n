@@ -81,16 +81,9 @@ Only reply with the summary and the response text, clearly separated.
 - Notification analyzer
 
 
----
 
-## 📜 License
-
-This project is open-source under the [MIT License](https://opensource.org/licenses/MIT).  
-Feel free to fork, remix, and build on it.
-
----
 
 ## 🙋‍♂️ Author
 
-Made with 💡 and automation power by **[Your Name]**  
+Made with 💡 and automation power by **Anikesh**  
 Let’s connect on [LinkedIn]([https://linkedin.com](https://www.linkedin.com/in/anikesh-kumar-289aaa290))
