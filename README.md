@@ -1,54 +1,113 @@
 # 🤖 AI Gmail Assistant using n8n + Gemini Pro
 
-A smart Gmail automation system that fetches specific emails (e.g., "Hackathon"), summarizes their content using Google Gemini Pro, and sends AI-generated replies — all in a **100% no-code** workflow using **n8n**.
+A smart Gmail automation system that fetches specific emails (like "Hackathon"), summarizes them using **Gemini Pro**, and replies with AI-generated responses — all in a **no-code workflow** built in [n8n](https://n8n.io).
 
-![Demo Image](./photo.jpeg)
+![Demo](./photo.jpeg)
 
 ---
 
 ## 📌 Features
 
-- 🔍 Searches Gmail for specific topics (e.g., "mails related to hackathon")
-- 🧠 Summarizes content using Gemini Pro AI
-- ✉️ Sends auto-generated reply emails via Gmail
-- 🧩 Built fully in n8n (no-code)
-- 💸 Completely free – **no billing info required**
+- 🔍 Search Gmail for specific email content (e.g., "mails related to hackathon")
+- 🧠 Summarize email content using Gemini Pro AI
+- ✉️ Send AI-generated replies via Gmail
+- 🧩 Fully built using n8n workflow automation
+- 💸 100% free setup — **no billing info required**
 
 ---
 
 ## 📹 Demo Video
 
-Watch the working video of this project here:  
-👉 [Drive Video Link](https://drive.google.com/drive/folders/1csgF2dCoj_dq6qWLiibObRiZAs0w7U8U?usp=sharing)
+Watch the working demo here:  
+🎥 [Google Drive Folder](https://drive.google.com/drive/folders/1csgF2dCoj_dq6qWLiibObRiZAs0w7U8U?usp=sharing)
 
 ---
 
 ## ⚙️ Tech Stack
 
-- [n8n](https://n8n.io/) – no-code workflow automation
-- [Google Gemini Pro API](https://ai.google.dev/) – for AI summaries and email generation
-- [Gmail API](https://developers.google.com/gmail/api) – for email read/write via OAuth2
+- [n8n](https://n8n.io) – workflow automation tool
+- [Google Gemini Pro](https://ai.google.dev/) – for AI summarization & response
+- [Gmail API](https://developers.google.com/gmail/api) – for email access and sending
+- [OAuth2 + HTTP Request Node] – integrated via n8n credentials
+
+---
+
+## 🧠 AI Prompt Used
+
+This is the system prompt used with Gemini Pro to generate responses:
+
+```
+You are an email assistant. Read the Gmail message content provided and:
+1. Summarize it concisely.
+2. Generate a short, polite, and relevant reply.
+3. Mention if the email appears urgent or casual.
+
+Only reply with the summary and the response text, clearly separated.
+```
 
 ---
 
 ## 🚀 How It Works
 
-1. **Trigger:** Manual or Scheduled
-2. **Search Gmail:** Searches for user-defined keyword (e.g., "Hackathon")
-3. **Process Email:** Extracts subject and body text
-4. **Use Gemini Pro AI:** Summarizes and generates a response
-5. **Send Email:** Sends the AI-written reply via Gmail
+1. **Trigger**: Starts manually or on schedule
+2. **Gmail Search Node**: Searches for specific keywords (e.g., "hackathon")
+3. **Extract Content**: Gets subject + body of matching emails
+4. **Gemini Pro Node**: Sends the email content to Gemini and receives a summary + reply
+5. **Send Gmail Node**: Sends the AI-generated reply email to the original sender
 
 ---
 
-## 🔐 Requirements
+## 🛠️ Setup Instructions
 
-- n8n account (cloud or self-hosted)
-- Google Gmail account
-- Gemini Pro API key (Pro version; no billing required)
-- Gmail OAuth2 credentials added to n8n
+1. Clone this repo or download the `README.md` + image
+2. Set up an [n8n Cloud](https://n8n.io/) or self-hosted instance
+3. Import your workflow into n8n
+4. Add the following credentials:
+   - **Gmail OAuth2** (for reading/sending mail)
+   - **Gemini Pro API Key** (for AI responses)
+5. Customize the keyword in the Gmail node (e.g., `"hackathon"`)
+6. Run the workflow and enjoy automation!
 
 ---
 
-## 🧠 Prompt Used for Gemini Agent
+## 📸 Screenshot
 
+You can add this to GitHub to display in your project:
+
+```markdown
+![Workflow Screenshot](./photo.jpeg)
+```
+
+---
+
+## 💡 Use Cases
+
+- Auto-reply for Hackathon emails
+- Internship or Job mail assistant
+- Daily summary and triage of unread emails
+- Support ticket replies
+- Notification analyzer
+
+---
+
+## 📂 Repository Structure
+
+```
+├── photo.jpeg           # Workflow image (you add this)
+├── README.md            # This file
+└── (optional) workflow.json
+```
+
+---
+
+## 📜 License
+
+This project is open-source under the [MIT License](https://opensource.org/licenses/MIT).  
+Feel free to fork, remix, and build on it.
+
+---
+
+## 🙋‍♂️ Author
+
+Made with 💡 and automation power by **[Your Name]**  
+Let’s connect on [LinkedIn](https://linkedin.com)
