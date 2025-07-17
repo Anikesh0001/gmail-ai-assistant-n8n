@@ -86,4 +86,4 @@ Only reply with the summary and the response text, clearly separated.
 ## 🙋‍♂️ Author
 
 Made with 💡 and automation power by **Anikesh**  
-Let’s connect on [LinkedIn]([https://linkedin.com](https://www.linkedin.com/in/anikesh-kumar-289aaa290))
+Let’s connect on [LinkedIn]([https://www.linkedin.com/in/anikesh-kumar-289aaa290])
